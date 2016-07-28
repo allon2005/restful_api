@@ -1,0 +1,33 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="HandlerMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+<mvc:default-servlet-handler/>
+
+	<context:component-scan base-package="springMVC1Controller" />  <!-- -to auto load the controllers inside the package "springMVC1Controller" 
+		matching the requests -->
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- after the controller sent the view name, the view resolver will find 
+		the view file in the folder /WEB-INF/, the view file's suffix will be .jsp. 
+		The data from the model will be passed to the view and return to the client -->
+
+
+</beans>
+
+<!-- 1. <context:component-scan> vs <annotation-driven> see: http://stackoverflow.com/questions/13661985/spring-mvc-difference-between-contextcomponent-scan-and-annotation-driven -->
