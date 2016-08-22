@@ -1,0 +1,5 @@
+com\yilong\maven\restful\restful3a\controller\HelloWorldRestController.class
+com\yilong\maven\restful\restful3a\configuration\HelloWorldConfiguration.class
+com\yilong\maven\restful\restful3a\domain\Message.class
+com\yilong\maven\restful\restful3a\configuration\HelloWorldInitializer.class
+com\yilong\maven\restful\restful3a\App.class
